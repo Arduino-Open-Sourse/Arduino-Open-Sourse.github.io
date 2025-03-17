@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Blink V2 - Arduino Open Source</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="shortcut icon" href="../../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../../favicon.png" alt="Arduino Logo">
+        <span>Arduino Open Source</span>
+        <nav>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../projects/">Projects</a></li>
+        </nav>
+    </header>
+    <main>
+        <h1>LED Blink V2</h1>
+        <p>This project simplifies the classic Arduino Blink example by optimizing the code for better readability and efficiency.</p>
+        <h2>Code</h2>
+        <pre>
+<code>
+void setup() {
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+      
+void loop() {
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    delay(1000);
+}
+</code>
+        </pre>
+        <h2>How to Use</h2>
+        <ol>
+            <li>Connect an LED to pin 13 of your Arduino board.</li>
+            <li>Copy the code above into your Arduino IDE.</li>
+            <li>Upload the code to your Arduino board.</li>
+            <li>Watch the LED blink on and off every second!</li>
+        </ol>
+    </main>
+</body>
+</html>

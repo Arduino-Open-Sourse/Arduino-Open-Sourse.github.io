@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Flag with LiquidCrystal I2C</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="shortcut icon" href="../../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../../favicon.png" alt="Arduino Logo">
+        <span>Arduino Open Source</span>
+        <nav>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../projects/">Projects</a></li>
+        </nav>
+    </header>
+    <main>
+        <h1>Button Flag with LiquidCrystal I2C</h1>
+        <p>This project demonstrates how to display a message on an LCD screen using the LiquidCrystal I2C library when a button is pressed.</p>
+        <h2>Components Required</h2>
+        <ul>
+            <li>Arduino Board</li>
+            <li>16x2 LCD with I2C Module</li>
+            <li>Push Button</li>
+            <li>Resistors</li>
+            <li>Jumper Wires</li>
+            <li>Breadboard</li>
+        </ul>
+        <h2>Code</h2>
+        <p>Below is the Arduino code for this project:</p>
+        <pre>
+<code>
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+#define button_pin 12
+#define led_pin 13
+
+void setup() {
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  pinMode(button_pin, INPUT_PULLUP);
+  //pinMode(led_pin, OUTPUT);
+}
+
+void loop() {
+  //digitalWrite(led_pin, !digitalRead(button_pin));
+  lcd.clear();
+  if (!digitalRead(button_pin)) {
+    lcd.print("Button pressed");
+  } else {
+    lcd.print("Button relessed");
+  }
+  delay(100);
+}
+
+</code>
+        </pre>
+        <h2>Instructions</h2>
+        <ol>
+            <li>Connect the components as per the circuit diagram.</li>
+            <li>Upload the provided code to your Arduino board.</li>
+            <li>Press the button to see the message on the LCD screen.</li>
+        </ol>
+    </main>
+</body>
+</html>
