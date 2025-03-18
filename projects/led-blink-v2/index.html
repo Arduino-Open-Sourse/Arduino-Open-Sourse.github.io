@@ -20,16 +20,23 @@
     <main>
         <h1>LED Blink V2</h1>
         <p>This project simplifies the classic Arduino Blink example by optimizing the code for better readability and efficiency.</p>
+        <ul>
+            <li>Arduino Board</li>
+        </ul>
+        <img src="../Blink V2.png">
         <h2>Code</h2>
         <pre>
 <code>
+static uint32_t tmr;
 void setup() {
     pinMode(LED_BUILTIN, OUTPUT);
 }
       
 void loop() {
-    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-    delay(1000);
+    if (millis() - tmr >= 1000) {
+        tmr = millis();
+        digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    }
 }
 </code>
         </pre>
