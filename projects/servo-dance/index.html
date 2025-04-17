@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Blink V2 - Arduino Open Source</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="shortcut icon" href="../../favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../../favicon.png" alt="Arduino Logo">
+        <span>Arduino Open Source</span>
+        <nav>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../projects/">Projects</a></li>
+            <li><a href="../../libraries/">Libraries</a></li>
+        </nav>
+    </header>
+    <main>
+        <h1>Servo Dance</h1>
+        <p>This project make a servo motor dance.</p>
+        <h2>Components Required</h2>
+        <ul>
+            <li>Arduino Board</li>
+            <li>Servo Motor</li>
+            <li>Power Supply (if needed)</li>
+            <li>Jumper Wires</li>
+        </ul>
+        <img src="../Servo Dance.png">
+        <h2>Code</h2>
+        <pre>
+<code>
+// Servo Dance for Arduino (Single Servo Version)
+#include <Servo.h>
+
+// Create a servo object
+Servo servo;
+
+void setup() {
+  // Attach the servo to pin 9
+  servo.attach(9); // Servo on pin 9
+}
+
+void loop() {
+  // Smooth wave movement
+  for (int angle = 0; angle <= 180; angle += 10) {
+    servo.write(angle);
+    delay(200);
+  }
+  for (int angle = 180; angle >= 0; angle -= 10) {
+    servo.write(angle);
+    delay(200);
+  }
+
+  // Fast shake
+  for (int i = 0; i < 5; i++) {
+    servo.write(60);
+    delay(100);
+    servo.write(120);
+    delay(100);
+  }
+
+  // Short vibration around center
+  for (int i = 0; i < 10; i++) {
+    servo.write(90 + (i % 2 == 0 ? 5 : -5));
+    delay(80);
+  }
+
+  // Salsa-like sway
+  for (int i = 0; i < 4; i++) {
+    servo.write(90);
+    delay(150);
+    servo.write(70);
+    delay(150);
+    servo.write(110);
+    delay(150);
+    servo.write(90);
+    delay(150);
+  }
+
+  // Bow movement
+  for (int i = 0; i < 2; i++) {
+    servo.write(45);
+    delay(500);
+    servo.write(90);
+    delay(500);
+  }
+
+  // Pause before repeating
+  delay(500);
+} 
+</code>
+        </pre>
+        <h2>How to Use</h2>
+        <ol>
+            <li>Connect the servo motor to pin 9 of the Arduino board.</li>
+            <li>Upload the code to your Arduino board.</li>
+            <li>Power the Arduino board.</li>
+            <li>Watch the servo motor dance!</li>
+        </ol>
+    </main>
+    <footer>
+      <p>&copy; 2023 Arduino Open Source. All rights reserved.</p>
+  </footer>
+</body>
+</html>

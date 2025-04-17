@@ -93,3 +93,12 @@ button[name="git-lib"] {
 button[name="git-lib"]:hover {
     background-color: #3eaf5e;
 }
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
