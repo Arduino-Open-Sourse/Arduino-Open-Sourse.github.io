@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-image: url("https://projecthub.arduino.cc/_next/static/media/cover_dashboard.0c10fe0e.png");
     color: white;
     padding: 1em;
     text-align: center;
